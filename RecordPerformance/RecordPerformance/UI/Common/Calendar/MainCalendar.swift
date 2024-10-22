@@ -65,6 +65,7 @@ struct MainCalendar: View {
                     CalendarDayView(currentDate: $currentDate, date: thisDate) {
                         currentDate = thisDate
                     }
+                    .padding(.bottom, 8)
                 }
             }
         }

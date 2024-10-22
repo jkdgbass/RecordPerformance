@@ -34,7 +34,7 @@ struct LoginView: View {
             }
             .frame(height: 48)
             .overlay(content: {
-                RoundedRectangle(cornerRadius: 15)
+                RoundedRectangle(cornerRadius: radiusSm)
                     .inset(by: -0.5)
                     .stroke(Color.white, lineWidth: 1)
             })
@@ -61,7 +61,7 @@ struct LoginView: View {
             .background {
                 Color(red: 250.0/255.0, green: 225.0/255.0, blue: 0)
             }
-            .clipShape(RoundedRectangle(cornerRadius: 15))
+            .clipShape(RoundedRectangle(cornerRadius: radiusSm))
             .padding(.bottom, 24)
             .padding(.horizontal, 48)
             
@@ -85,7 +85,7 @@ struct LoginView: View {
             .background {
                 Color(red: 0, green: 199.0/255.0, blue: 60.0/255.0)
             }
-            .clipShape(RoundedRectangle(cornerRadius: 15))
+            .clipShape(RoundedRectangle(cornerRadius: radiusSm))
             .padding(.horizontal, 48)
             
             Spacer()

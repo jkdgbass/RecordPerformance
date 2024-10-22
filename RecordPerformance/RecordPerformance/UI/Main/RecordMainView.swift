@@ -17,7 +17,9 @@ struct RecordMainView: View {
             MainCalendar(currentDate: $model.currentDate)
                 .padding(.all, 16)
             
-            
+            ScrollView {
+                
+            }
         }
         .background {
             Color.black

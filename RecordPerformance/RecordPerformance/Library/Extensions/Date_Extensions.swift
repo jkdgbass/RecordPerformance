@@ -54,4 +54,13 @@ extension Date {
         
         return dates
     }
+    
+    func isSameDate(compareDate: Date) -> Bool {
+        let thisComp = Calendar.current.dateComponents([.year, .month, .day], from: self)
+        let compareComp = Calendar.current.dateComponents([.year, .month, .day], from: compareDate)
+        
+        return thisComp.year! == compareComp.year &&
+        thisComp.month! == compareComp.month! &&
+        thisComp.day == compareComp.day!
+    }
 }
