@@ -63,4 +63,30 @@ extension Date {
         thisComp.month! == compareComp.month! &&
         thisComp.day == compareComp.day!
     }
+    
+    var nextMonth: Date {
+        let thisComp = Calendar.current.dateComponents([.year, .month, .day], from: self)
+        var components = DateComponents()
+        components.year = thisComp.year
+        components.month = thisComp.month! + 1
+        components.day = 1
+        
+        if let next = Calendar.current.date(from: components) {
+            return next
+        }
+        return Date()
+    }
+    
+    var beforeMonth: Date {
+        let thisComp = Calendar.current.dateComponents([.year, .month, .day], from: self)
+        var components = DateComponents()
+        components.year = thisComp.year
+        components.month = thisComp.month! - 1
+        components.day = 1
+        
+        if let before = Calendar.current.date(from: components) {
+            return before
+        }
+        return Date()
+    }
 }

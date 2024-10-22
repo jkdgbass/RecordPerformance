@@ -24,14 +24,14 @@ struct MainCalendar: View {
                 Spacer()
                 
                 Button {
-                    
+                    currentDate = currentDate.beforeMonth
                 } label: {
                     Image("btn_gray_back")
                 }
                 .padding(.trailing, 16)
 
                 Button {
-                    
+                    currentDate = currentDate.nextMonth
                 } label: {
                     Image("btn_gray_next")
                 }
