@@ -18,8 +18,15 @@ struct RecordMainView: View {
                 .padding(.all, 16)
             
             ScrollView {
-                
+                LazyVStack {
+                    ForEach(1...10, id: \.self) { count in
+                        RecordRowView()
+                            .padding(.bottom, 32)
+                    }
+                }
             }
+            .foregroundStyle(Color.surfaceContainerLow)
+            .cornerRadius(radiusXl, corners: [.topLeft, .topRight])
         }
         .background {
             Color.black
