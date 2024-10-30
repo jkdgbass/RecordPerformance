@@ -22,6 +22,7 @@ struct BasicTextField: View {
                 .onSubmit {
                     returnHandler()
                 }
+                .padding(.horizontal, 16)
             
             if text.isEmpty {
                 HStack {
@@ -34,7 +35,7 @@ struct BasicTextField: View {
                 .padding(.horizontal, 16)
             }
         }
-        .frame(width: .infinity, height: 48)
+        .frame(height: 48)
         .background(content: {
             Color.surfaceContainer
         })

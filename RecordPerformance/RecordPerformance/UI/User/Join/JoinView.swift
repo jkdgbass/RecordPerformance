@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct JoinView: View {
+    
     @State private var keyboardHeight: CGFloat = 0
     @StateObject private var model = JoinViewModel()
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         VStack(spacing: 0) {
             BackNavigationView {
-                
+                dismiss()
             }
             .padding(.top, UIScreen.topSafeArea)
             
