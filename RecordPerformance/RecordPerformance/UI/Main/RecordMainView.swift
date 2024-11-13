@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RecordMainView: View {
     @StateObject var model = RecordMainViewModel()
+    @State private var offset: CGPoint = .zero
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -19,15 +20,19 @@ struct RecordMainView: View {
                 MainCalendar(currentDate: $model.currentDate)
                     .padding(.all, 16)
                 
-                ScrollView {
-                    LazyVStack {
-                        ForEach(1...10, id: \.self) { count in
-                            RecordRowView()
-                                .padding(.bottom, 32)
+                ScrollViewReader { proxy in
+                    ScrollView {
+                        LazyVStack {
+                            ForEach(1...10, id: \.self) { count in
+                                RecordRowView()
+                                    .padding(.bottom, 32)
+                            }
                         }
                     }
                 }
-                .foregroundStyle(Color.surfaceContainerLow)
+                .background(content: {
+                    Color.surfaceContainerLow
+                })
                 .cornerRadius(radiusXl, corners: [.topLeft, .topRight])
             }
             
@@ -46,6 +51,9 @@ struct RecordMainView: View {
 
         }
         .ignoresSafeArea(.all)
+        .task {
+            model.testApi()
+        }
     }
 }
 
